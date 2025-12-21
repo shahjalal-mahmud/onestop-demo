@@ -34,7 +34,7 @@ const Navbar = () => {
             <span>📍 Los Angeles, CA • Open Daily 8AM – 10PM</span>
             <a
               href="https://wa.me/3232927591"
-              className="flex items-center gap-2 text-green-400 hover:text-green-300"
+              className="flex items-center gap-2 text-amber-400 hover:text-amber-300"
             >
               <FaWhatsapp />
               Order on WhatsApp
@@ -48,11 +48,11 @@ const Navbar = () => {
         className={`fixed w-full z-40 transition-all duration-500 ${
           scrolled
             ? "top-8 bg-white/90 backdrop-blur border-b border-gray-200 shadow-md"
-            : "top-0 bg-gradient-to-b from-black/70 to-black/10"
+            : "top-0 bg-gradient-to-b from-black/80 via-black/40 to-black/10"
         }`}
       >
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          
+
           {/* LOGO */}
           <NavLink to="/" className="flex items-center gap-3">
             <img
@@ -60,8 +60,8 @@ const Navbar = () => {
               alt="One Stop Liquor Logo"
               className={`w-10 h-10 object-contain transition ${
                 scrolled
-                  ? "drop-shadow-none"
-                  : "drop-shadow-[0_0_6px_rgba(255,255,255,0.9)]"
+                  ? ""
+                  : "drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]"
               }`}
             />
             <div className="leading-tight">
@@ -74,7 +74,7 @@ const Navbar = () => {
               </h1>
               <p
                 className={`text-sm font-semibold transition ${
-                  scrolled ? "text-primary" : "text-primary/90"
+                  scrolled ? "text-amber-500" : "text-amber-400"
                 }`}
               >
                 LIQUOR MARKET WHOLE MART
@@ -92,10 +92,10 @@ const Navbar = () => {
                   `font-medium transition ${
                     scrolled
                       ? isActive
-                        ? "text-primary"
-                        : "text-gray-700 hover:text-primary"
+                        ? "text-amber-500"
+                        : "text-gray-700 hover:text-amber-500"
                       : isActive
-                      ? "text-white"
+                      ? "text-amber-400"
                       : "text-white/90 hover:text-white"
                   }`
                 }
@@ -111,8 +111,8 @@ const Navbar = () => {
               href="tel:3232927591"
               className={`flex items-center gap-2 font-medium transition ${
                 scrolled
-                  ? "text-gray-700 hover:text-primary"
-                  : "text-white hover:text-white/80"
+                  ? "text-gray-700 hover:text-amber-500"
+                  : "text-white hover:text-amber-400"
               }`}
             >
               <FaPhoneAlt />
@@ -125,7 +125,7 @@ const Navbar = () => {
                   scrolled ? "text-gray-700" : "text-white"
                 }`}
               />
-              <span className="absolute -top-2 -right-2 bg-primary text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+              <span className="absolute -top-2 -right-2 bg-amber-400 text-gray-900 text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
                 3
               </span>
             </button>
@@ -144,14 +144,14 @@ const Navbar = () => {
 
         {/* MOBILE MENU */}
         {open && (
-          <div className="lg:hidden bg-white border-t shadow-md">
+          <div className="lg:hidden bg-white border-t shadow-lg">
             <div className="container mx-auto py-4 space-y-2 px-4">
               {navLinks.map((link) => (
                 <NavLink
                   key={link.to}
                   to={link.to}
                   onClick={() => setOpen(false)}
-                  className="block px-4 py-3 rounded-lg text-gray-700 hover:bg-gray-100"
+                  className="block px-4 py-3 rounded-lg text-gray-800 hover:bg-gray-100 font-medium"
                 >
                   {link.label}
                 </NavLink>
@@ -159,7 +159,9 @@ const Navbar = () => {
 
               <a
                 href="tel:3232927591"
-                className="flex items-center justify-center gap-2 w-full bg-primary text-white py-3 rounded-lg font-medium mt-3"
+                className="flex items-center justify-center gap-2 w-full 
+                  bg-amber-400 text-gray-900 py-3 rounded-lg 
+                  font-bold mt-3 hover:bg-amber-300 transition"
               >
                 <FaPhoneAlt />
                 Call to Order
