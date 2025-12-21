@@ -2,7 +2,7 @@ import React from "react";
 
 const AboutOverview = () => {
   return (
-    <section className="relative py-20 sm:py-24 lg:py-32 bg-gradient-to-b from-black via-neutral-900 to-black overflow-hidden">
+    <section className="relative py-4 sm:py-6 lg:py-8 bg-gradient-to-b from-black via-neutral-900 to-black overflow-hidden">
 
       {/* Ambient background glow */}
       <div className="absolute inset-0 -z-10">
@@ -14,7 +14,7 @@ const AboutOverview = () => {
         <div className="max-w-7xl mx-auto">
 
           {/* SECTION HEADER */}
-          <div className="text-center mb-20 lg:mb-28">
+          <div className="text-center mb-10 lg:mb-14">
             <span className="inline-block mb-4 px-4 py-1.5 rounded-full 
               bg-white/10 backdrop-blur border border-white/20
               text-xs font-semibold tracking-[0.3em] text-amber-400 uppercase">
