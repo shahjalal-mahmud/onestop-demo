@@ -6,7 +6,7 @@ const Team = () => {
 
   const teamMembers = [
     {
-      name: "Michael Rodriguez",
+      name: "ASHVIN KUMAR SAVALIA",
       role: "Chief Executive Officer",
       department: "Executive Leadership",
       bio: "With over 15 years of retail management experience, Michael leads our strategic vision and ensures operational excellence across all locations.",
@@ -17,8 +17,8 @@ const Team = () => {
       initials: "MR"
     },
     {
-      name: "Hussain Ali",
-      role: "Operations Director",
+      name: "POOJAN VACHHANI",
+      role: "Managing Director",
       department: "Operations & Logistics",
       bio: "Sarah oversees daily operations, inventory management, and ensures efficient supply chain processes for our retail and wholesale divisions.",
       experience: "12+ years in Supply Chain Management",
@@ -28,8 +28,8 @@ const Team = () => {
       initials: "SC"
     },
     {
-      name: "David Wilson",
-      role: "Customer Relations Manager",
+      name: "DARSHAN KUMAR",
+      role: "Employee",
       department: "Customer Service",
       bio: "David leads our customer service team, focusing on building lasting relationships with both retail customers and wholesale partners.",
       experience: "10+ years in Customer Service Leadership",
