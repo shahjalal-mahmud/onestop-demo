@@ -10,7 +10,7 @@ const Home = () => {
     <div className="min-h-screen">
       <HeroSection />
       <AboutOverview />
-      <KeyHighlights />
+      {/* <KeyHighlights /> */}
       <LocationSection />
       <CallToAction />
     </div>

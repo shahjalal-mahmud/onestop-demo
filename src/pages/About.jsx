@@ -177,56 +177,6 @@ const About = () => {
           </div>
         </motion.div>
 
-        {/* Stats Section */}
-        <motion.div 
-          {...fadeInUp}
-          className="mb-20 lg:mb-28"
-        >
-          <div className="relative overflow-hidden rounded-3xl p-8 md:p-12 lg:p-16">
-            {/* Background Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-r from-amber-500/10 via-amber-600/10 to-amber-700/10 backdrop-blur-sm"></div>
-            <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-transparent"></div>
-            
-            <div className="relative z-10">
-              <div className="text-center mb-12">
-                <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                  Years of Excellence
-                </h3>
-                <p className="text-gray-300 text-lg">Proudly serving our community since 2017</p>
-              </div>
-              
-              <div className="flex flex-col items-center">
-                <div className="relative mb-8">
-                  <div className="text-8xl md:text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">
-                    7+
-                  </div>
-                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 text-xl md:text-2xl font-bold bg-gradient-to-r from-amber-500 to-amber-600 text-white px-8 py-3 rounded-full">
-                    Years in Business
-                  </div>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-3xl w-full mt-8">
-                  <div className="text-center p-6 bg-black/40 backdrop-blur-sm rounded-2xl border border-amber-500/20">
-                    <Users className="w-12 h-12 text-amber-400 mx-auto mb-4" />
-                    <div className="text-3xl font-bold text-white mb-2">1000+</div>
-                    <div className="text-gray-300">Happy Customers</div>
-                  </div>
-                  <div className="text-center p-6 bg-black/40 backdrop-blur-sm rounded-2xl border border-amber-500/20">
-                    <Award className="w-12 h-12 text-amber-400 mx-auto mb-4" />
-                    <div className="text-3xl font-bold text-white mb-2">50+</div>
-                    <div className="text-gray-300">Premium Brands</div>
-                  </div>
-                  <div className="text-center p-6 bg-black/40 backdrop-blur-sm rounded-2xl border border-amber-500/20">
-                    <Shield className="w-12 h-12 text-amber-400 mx-auto mb-4" />
-                    <div className="text-3xl font-bold text-white mb-2">24/7</div>
-                    <div className="text-gray-300">Support</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
         {/* Commitment Section */}
         <motion.div 
           {...fadeInUp}
