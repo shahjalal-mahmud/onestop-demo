@@ -31,7 +31,7 @@ const Navbar = () => {
       {scrolled && (
         <div className="hidden lg:block bg-gray-900 text-gray-200 text-sm fixed top-0 w-full z-50">
           <div className="container mx-auto flex justify-between items-center py-2 px-4">
-            <span>📍 Los Angeles, CA • Open Daily 8AM – 10PM</span>
+            <span>Los Angeles, CA • Open Daily 8AM – 10PM</span>
             <a
               href="https://wa.me/3232927591"
               className="flex items-center gap-2 text-amber-400 hover:text-amber-300"
