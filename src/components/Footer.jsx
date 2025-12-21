@@ -34,6 +34,16 @@ const Footer = () => {
             </li>
 
             <li className="flex items-center gap-3">
+              <FaPhoneAlt className="text-primary" />
+              <a
+                href="tel:5551234567"
+                className="hover:text-white transition"
+              >
+                (323) 292-7591
+              </a>
+            </li>
+
+            <li className="flex items-center gap-3">
               <FaEnvelope className="text-primary" />
               <a
                 href="mailto:hr@onestopliquorandwholemart.info"

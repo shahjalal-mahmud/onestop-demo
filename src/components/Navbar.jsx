@@ -7,14 +7,13 @@ import {
   FaWhatsapp,
   FaShoppingCart,
 } from "react-icons/fa";
-import { MdLocalGroceryStore } from "react-icons/md";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setScrolled(window.scrollY > 80);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -28,56 +27,76 @@ const Navbar = () => {
 
   return (
     <>
-      {/* ───────────── Top Info Bar ───────────── */}
-      <div className="hidden lg:block bg-gray-900 text-gray-200 text-sm">
-        <div className="container mx-auto flex justify-between items-center py-2">
-          <span>📍 Los Angeles, CA • Open Daily 8AM – 10PM</span>
-          <a
-            href="https://wa.me/15551234567"
-            className="flex items-center gap-2 text-green-400 hover:text-green-300"
-          >
-            <FaWhatsapp />
-            Order on WhatsApp
-          </a>
+      {/* TOP INFO BAR */}
+      {scrolled && (
+        <div className="hidden lg:block bg-gray-900 text-gray-200 text-sm fixed top-0 w-full z-50">
+          <div className="container mx-auto flex justify-between items-center py-2 px-4">
+            <span>📍 Los Angeles, CA • Open Daily 8AM – 10PM</span>
+            <a
+              href="https://wa.me/3232927591"
+              className="flex items-center gap-2 text-green-400 hover:text-green-300"
+            >
+              <FaWhatsapp />
+              Order on WhatsApp
+            </a>
+          </div>
         </div>
-      </div>
+      )}
 
-      {/* ───────────── Main Navbar ───────────── */}
+      {/* NAVBAR */}
       <nav
-        className={`sticky top-0 z-50 transition-all ${
+        className={`fixed w-full z-40 transition-all duration-500 ${
           scrolled
-            ? "bg-white/95 backdrop-blur border-b border-gray-200 shadow-sm"
-            : "bg-white"
+            ? "top-8 bg-white/90 backdrop-blur border-b border-gray-200 shadow-md"
+            : "top-0 bg-gradient-to-b from-black/70 to-black/10"
         }`}
       >
-        <div className="container mx-auto flex items-center justify-between py-4">
-
-          {/* Logo */}
-          <NavLink to="/" className="flex items-center gap-4">
-            <div className="w-11 h-11 rounded-xl bg-primary flex items-center justify-center">
-              <MdLocalGroceryStore className="text-white w-6 h-6" />
-            </div>
-            <div>
-              <h1 className="text-lg font-bold leading-tight">
+        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+          
+          {/* LOGO */}
+          <NavLink to="/" className="flex items-center gap-3">
+            <img
+              src="/logo.png"
+              alt="One Stop Liquor Logo"
+              className={`w-10 h-10 object-contain transition ${
+                scrolled
+                  ? "drop-shadow-none"
+                  : "drop-shadow-[0_0_6px_rgba(255,255,255,0.9)]"
+              }`}
+            />
+            <div className="leading-tight">
+              <h1
+                className={`font-bold text-lg transition ${
+                  scrolled ? "text-gray-900" : "text-white"
+                }`}
+              >
                 ONE STOP LIQUOR
               </h1>
-              <p className="text-sm text-primary font-semibold">
-                & WHOLE MARKET
+              <p
+                className={`text-sm font-semibold transition ${
+                  scrolled ? "text-primary" : "text-primary/90"
+                }`}
+              >
+                LIQUOR MARKET WHOLE MART
               </p>
             </div>
           </NavLink>
 
-          {/* Desktop Links */}
+          {/* DESKTOP LINKS */}
           <div className="hidden lg:flex items-center gap-10">
             {navLinks.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
                 className={({ isActive }) =>
-                  `text-base font-medium transition ${
-                    isActive
-                      ? "text-primary"
-                      : "text-gray-700 hover:text-primary"
+                  `font-medium transition ${
+                    scrolled
+                      ? isActive
+                        ? "text-primary"
+                        : "text-gray-700 hover:text-primary"
+                      : isActive
+                      ? "text-white"
+                      : "text-white/90 hover:text-white"
                   }`
                 }
               >
@@ -86,37 +105,47 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Actions */}
-          <div className="hidden lg:flex items-center gap-5">
+          {/* ACTIONS */}
+          <div className="hidden lg:flex items-center gap-6">
             <a
-              href="tel:5551234567"
-              className="flex items-center gap-2 text-gray-700 hover:text-primary"
+              href="tel:3232927591"
+              className={`flex items-center gap-2 font-medium transition ${
+                scrolled
+                  ? "text-gray-700 hover:text-primary"
+                  : "text-white hover:text-white/80"
+              }`}
             >
               <FaPhoneAlt />
-              <span className="font-medium">Order Now</span>
+              Order Now
             </a>
 
             <button className="relative">
-              <FaShoppingCart className="w-5 h-5 text-gray-700" />
+              <FaShoppingCart
+                className={`w-5 h-5 transition ${
+                  scrolled ? "text-gray-700" : "text-white"
+                }`}
+              />
               <span className="absolute -top-2 -right-2 bg-primary text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
                 3
               </span>
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* MOBILE TOGGLE */}
           <button
-            className="lg:hidden"
+            className={`lg:hidden transition ${
+              scrolled ? "text-gray-900" : "text-white"
+            }`}
             onClick={() => setOpen(!open)}
           >
             {open ? <FaTimes size={22} /> : <FaBars size={22} />}
           </button>
         </div>
 
-        {/* ───────────── Mobile Menu ───────────── */}
+        {/* MOBILE MENU */}
         {open && (
-          <div className="lg:hidden border-t bg-white">
-            <div className="container mx-auto py-4 space-y-2">
+          <div className="lg:hidden bg-white border-t shadow-md">
+            <div className="container mx-auto py-4 space-y-2 px-4">
               {navLinks.map((link) => (
                 <NavLink
                   key={link.to}
@@ -128,38 +157,17 @@ const Navbar = () => {
                 </NavLink>
               ))}
 
-              <button className="w-full btn btn-primary mt-3">
-                <FaPhoneAlt className="mr-2" />
+              <a
+                href="tel:3232927591"
+                className="flex items-center justify-center gap-2 w-full bg-primary text-white py-3 rounded-lg font-medium mt-3"
+              >
+                <FaPhoneAlt />
                 Call to Order
-              </button>
+              </a>
             </div>
           </div>
         )}
       </nav>
-
-      {/* ───────────── Categories Bar ───────────── */}
-      <div className="hidden lg:block bg-gray-50 border-t border-gray-200">
-        <div className="container mx-auto py-3 flex items-center gap-8 text-sm">
-          <span className="font-semibold text-gray-900">
-            Shop Categories:
-          </span>
-          {[
-            "Beer & Ale",
-            "Wine",
-            "Spirits",
-            "Non-Alcoholic",
-            "Offers",
-          ].map((cat) => (
-            <a
-              key={cat}
-              href="#"
-              className="text-gray-600 hover:text-primary transition"
-            >
-              {cat}
-            </a>
-          ))}
-        </div>
-      </div>
     </>
   );
 };
