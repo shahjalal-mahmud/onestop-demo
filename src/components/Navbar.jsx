@@ -6,6 +6,8 @@ import {
   FaPhoneAlt,
   FaWhatsapp,
   FaShoppingCart,
+  FaMapMarkerAlt,
+  FaClock,
 } from "react-icons/fa";
 
 const Navbar = () => {
@@ -18,6 +20,17 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Close mobile menu on window resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const navLinks = [
     { to: "/", label: "Home" },
     { to: "/about", label: "About" },
@@ -27,149 +40,261 @@ const Navbar = () => {
 
   return (
     <>
-      {/* TOP INFO BAR */}
-      {scrolled && (
-        <div className="hidden lg:block bg-gray-900 text-gray-200 text-sm fixed top-0 w-full z-50">
-          <div className="container mx-auto flex justify-between items-center py-2 px-4">
-            <span>Los Angeles, CA • Open Daily 8AM – 10PM</span>
+      {/* TOP INFO BAR - Only show on desktop */}
+      <div className="hidden lg:block bg-gradient-to-r from-gray-900 to-black text-gray-200 text-sm fixed top-0 w-full z-50 border-b border-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-2">
+            <div className="flex items-center gap-4">
+              <span className="flex items-center gap-1">
+                <FaMapMarkerAlt className="text-amber-400" />
+                Los Angeles, CA
+              </span>
+              <span className="flex items-center gap-1">
+                <FaClock className="text-amber-400" />
+                Open Daily 8AM – 10PM
+              </span>
+            </div>
             <a
               href="https://wa.me/3232927591"
-              className="flex items-center gap-2 text-amber-400 hover:text-amber-300"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-amber-400 hover:text-amber-300 transition-colors"
             >
               <FaWhatsapp />
               Order on WhatsApp
             </a>
           </div>
         </div>
-      )}
+      </div>
 
-      {/* NAVBAR */}
+      {/* MAIN NAVBAR */}
       <nav
-        className={`fixed w-full z-40 transition-all duration-500 ${
+        className={`fixed w-full z-40 transition-all duration-300 ${
           scrolled
-            ? "top-8 bg-white/90 backdrop-blur border-b border-gray-200 shadow-md"
-            : "top-0 bg-gradient-to-b from-black/80 via-black/40 to-black/10"
-        }`}
+            ? "lg:top-10 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-lg"
+            : "lg:top-10 bg-gradient-to-b from-black/90 to-transparent"
+        } top-0 bg-gray-900 lg:bg-transparent`}
+        style={{ width: '100vw', maxWidth: '100%' }}
       >
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 lg:h-20">
 
-          {/* LOGO */}
-          <NavLink to="/" className="flex items-center gap-3">
-            <img
-              src="/logo.png"
-              alt="One Stop Liquor Logo"
-              className={`w-10 h-10 object-contain transition ${
-                scrolled
-                  ? ""
-                  : "drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]"
-              }`}
-            />
-            <div className="leading-tight">
-              <h1
-                className={`font-bold text-lg transition ${
-                  scrolled ? "text-gray-900" : "text-white"
-                }`}
-              >
-                ONE STOP LIQUOR
-              </h1>
-              <p
-                className={`text-sm font-semibold transition ${
-                  scrolled ? "text-amber-500" : "text-amber-400"
-                }`}
-              >
-                LIQUOR MARKET WHOLE MART
-              </p>
-            </div>
-          </NavLink>
-
-          {/* DESKTOP LINKS */}
-          <div className="hidden lg:flex items-center gap-10">
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.to}
-                to={link.to}
-                className={({ isActive }) =>
-                  `font-medium transition ${
-                    scrolled
-                      ? isActive
-                        ? "text-amber-500"
-                        : "text-gray-700 hover:text-amber-500"
-                      : isActive
-                      ? "text-amber-400"
-                      : "text-white/90 hover:text-white"
-                  }`
-                }
-              >
-                {link.label}
-              </NavLink>
-            ))}
-          </div>
-
-          {/* ACTIONS */}
-          <div className="hidden lg:flex items-center gap-6">
-            <a
-              href="tel:3232927591"
-              className={`flex items-center gap-2 font-medium transition ${
-                scrolled
-                  ? "text-gray-700 hover:text-amber-500"
-                  : "text-white hover:text-amber-400"
-              }`}
+            {/* LOGO */}
+            <NavLink 
+              to="/" 
+              className="flex items-center gap-3 flex-shrink-0"
+              onClick={() => setOpen(false)}
             >
-              <FaPhoneAlt />
-              Order Now
-            </a>
-
-            <button className="relative">
-              <FaShoppingCart
-                className={`w-5 h-5 transition ${
-                  scrolled ? "text-gray-700" : "text-white"
+              <img
+                src="/logo.png"
+                alt="One Stop Liquor Logo"
+                className={`w-10 h-10 object-contain transition-all duration-300 ${
+                  scrolled
+                    ? ""
+                    : "lg:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]"
                 }`}
               />
-              <span className="absolute -top-2 -right-2 bg-amber-400 text-gray-900 text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
-                3
-              </span>
-            </button>
-          </div>
-
-          {/* MOBILE TOGGLE */}
-          <button
-            className={`lg:hidden transition ${
-              scrolled ? "text-gray-900" : "text-white"
-            }`}
-            onClick={() => setOpen(!open)}
-          >
-            {open ? <FaTimes size={22} /> : <FaBars size={22} />}
-          </button>
-        </div>
-
-        {/* MOBILE MENU */}
-        {open && (
-          <div className="lg:hidden bg-white border-t shadow-lg">
-            <div className="container mx-auto py-4 space-y-2 px-4">
-              {navLinks.map((link) => (
-                <NavLink
-                  key={link.to}
-                  to={link.to}
-                  onClick={() => setOpen(false)}
-                  className="block px-4 py-3 rounded-lg text-gray-800 hover:bg-gray-100 font-medium"
+              <div className="hidden sm:block leading-tight">
+                <h1
+                  className={`font-bold text-lg transition-colors duration-300 ${
+                    scrolled ? "text-gray-900" : "lg:text-white text-white"
+                  }`}
                 >
-                  {link.label}
-                </NavLink>
-              ))}
+                  ONE STOP LIQUOR
+                </h1>
+                <p
+                  className={`text-sm font-semibold transition-colors duration-300 ${
+                    scrolled ? "text-amber-600" : "lg:text-amber-400 text-amber-400"
+                  }`}
+                >
+                  LIQUOR MARKET WHOLE MART
+                </p>
+              </div>
+            </NavLink>
 
+            {/* DESKTOP NAVIGATION - Center aligned */}
+            <div className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2">
+              <div className="flex items-center gap-8">
+                {navLinks.map((link) => (
+                  <NavLink
+                    key={link.to}
+                    to={link.to}
+                    className={({ isActive }) =>
+                      `font-medium text-sm uppercase tracking-wide transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-amber-500 after:transition-all after:duration-300 after:w-0 hover:after:w-full ${
+                        scrolled
+                          ? isActive
+                            ? "text-amber-600 after:w-full"
+                            : "text-gray-700 hover:text-amber-600"
+                          : isActive
+                          ? "text-amber-400 after:w-full"
+                          : "text-white/90 hover:text-white"
+                      }`
+                    }
+                  >
+                    {link.label}
+                  </NavLink>
+                ))}
+              </div>
+            </div>
+
+            {/* DESKTOP ACTIONS - Right side */}
+            <div className="hidden lg:flex items-center gap-6 flex-shrink-0">
               <a
                 href="tel:3232927591"
-                className="flex items-center justify-center gap-2 w-full 
-                  bg-amber-400 text-gray-900 py-3 rounded-lg 
-                  font-bold mt-3 hover:bg-amber-300 transition"
+                className={`flex items-center gap-2 font-medium transition-colors duration-300 ${
+                  scrolled
+                    ? "text-gray-700 hover:text-amber-600"
+                    : "text-white hover:text-amber-400"
+                }`}
               >
-                <FaPhoneAlt />
-                Call to Order
+                <FaPhoneAlt className="flex-shrink-0" />
+                <span className="whitespace-nowrap">Order Now</span>
               </a>
+
+              <button className="relative group">
+                <FaShoppingCart
+                  className={`w-6 h-6 transition-colors duration-300 ${
+                    scrolled ? "text-gray-700 group-hover:text-amber-600" : "text-white group-hover:text-amber-400"
+                  }`}
+                />
+                <span className="absolute -top-2 -right-2 bg-amber-500 text-gray-900 text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
+                  3
+                </span>
+              </button>
             </div>
+
+            {/* MOBILE MENU TOGGLE */}
+            <button
+              className={`lg:hidden transition-colors duration-300 z-50 ${
+                scrolled || open ? "text-gray-900" : "text-white"
+              }`}
+              onClick={() => setOpen(!open)}
+              aria-label="Toggle menu"
+            >
+              {open ? <FaTimes size={24} /> : <FaBars size={24} />}
+            </button>
           </div>
+        </div>
+
+        {/* MOBILE MENU OVERLAY */}
+        {open && (
+          <>
+            {/* Backdrop */}
+            <div 
+              className="lg:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+              onClick={() => setOpen(false)}
+            />
+            
+            {/* Mobile Menu Panel */}
+            <div className="lg:hidden fixed right-0 top-0 h-full w-4/5 max-w-sm bg-gradient-to-b from-gray-900 to-black shadow-2xl z-50 overflow-y-auto animate-slideIn">
+              <div className="flex flex-col h-full">
+                {/* Mobile Header */}
+                <div className="flex items-center justify-between p-6 border-b border-gray-800">
+                  <NavLink 
+                    to="/" 
+                    className="flex items-center gap-3"
+                    onClick={() => setOpen(false)}
+                  >
+                    <img
+                      src="/logo.png"
+                      alt="One Stop Liquor Logo"
+                      className="w-10 h-10 object-contain"
+                    />
+                    <div className="leading-tight">
+                      <h1 className="font-bold text-lg text-white">
+                        ONE STOP LIQUOR
+                      </h1>
+                      <p className="text-sm font-semibold text-amber-400">
+                        LIQUOR MARKET WHOLE MART
+                      </p>
+                    </div>
+                  </NavLink>
+                  <button
+                    onClick={() => setOpen(false)}
+                    className="text-white hover:text-amber-400 transition-colors"
+                  >
+                    <FaTimes size={24} />
+                  </button>
+                </div>
+
+                {/* Mobile Navigation Links */}
+                <div className="flex-1 p-6 space-y-1">
+                  {navLinks.map((link) => (
+                    <NavLink
+                      key={link.to}
+                      to={link.to}
+                      onClick={() => setOpen(false)}
+                      className={({ isActive }) =>
+                        `block px-4 py-3 rounded-lg font-medium transition-colors ${
+                          isActive
+                            ? "bg-amber-500/10 text-amber-400 border-l-4 border-amber-500"
+                            : "text-gray-300 hover:bg-gray-800 hover:text-white"
+                        }`
+                      }
+                    >
+                      {link.label}
+                    </NavLink>
+                  ))}
+                </div>
+
+                {/* Mobile Contact Info */}
+                <div className="p-6 border-t border-gray-800 space-y-4">
+                  <div className="space-y-3">
+                    <a
+                      href="tel:3232927591"
+                      className="flex items-center justify-center gap-3 w-full 
+                        bg-amber-500 text-gray-900 py-3 rounded-lg 
+                        font-bold hover:bg-amber-400 transition-colors"
+                    >
+                      <FaPhoneAlt />
+                      Call to Order
+                    </a>
+                    
+                    <a
+                      href="https://wa.me/3232927591"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-3 w-full 
+                        bg-green-600 text-white py-3 rounded-lg 
+                        font-bold hover:bg-green-500 transition-colors"
+                    >
+                      <FaWhatsapp />
+                      WhatsApp Order
+                    </a>
+                  </div>
+                  
+                  <div className="text-center text-gray-400 text-sm pt-4 border-t border-gray-800">
+                    <p className="flex items-center justify-center gap-2 mb-2">
+                      <FaMapMarkerAlt />
+                      Los Angeles, CA
+                    </p>
+                    <p className="flex items-center justify-center gap-2">
+                      <FaClock />
+                      Open Daily 8AM – 10PM
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </>
         )}
       </nav>
+
+      {/* Add slide-in animation for mobile menu */}
+      <style jsx="true">{`
+        @keyframes slideIn {
+          from {
+            transform: translateX(100%);
+          }
+          to {
+            transform: translateX(0);
+          }
+        }
+        
+        .animate-slideIn {
+          animation: slideIn 0.3s ease-out;
+        }
+      `}</style>
     </>
   );
 };
