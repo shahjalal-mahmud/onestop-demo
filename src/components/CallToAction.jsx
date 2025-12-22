@@ -99,7 +99,7 @@ const CallToAction = () => {
 
             {/* Secondary button */}
             <a
-              href="/contact"
+              href="mailto:hr@onestopliquorandwholemart.info"
               className="group w-full sm:w-auto px-10 py-5 lg:px-12 lg:py-6 
                 bg-transparent text-white font-semibold text-lg rounded-2xl 
                 border-2 border-amber-500/50 hover:border-amber-400 hover:bg-amber-500/10 
@@ -159,7 +159,7 @@ const CallToAction = () => {
                     <Phone className="w-6 h-6 text-amber-400" />
                   </div>
                   <span className="text-lg font-semibold text-white mb-2">
-                    (323) 292-7591
+                    +1 323-292-7591
                   </span>
                   <span className="text-sm text-gray-400">
                     Call to Order
@@ -178,7 +178,7 @@ const CallToAction = () => {
                     </svg>
                   </div>
                   <span className="text-lg font-semibold text-white mb-2">
-                    8AM - 10PM
+                    7AM - 11PM
                   </span>
                   <span className="text-sm text-gray-400">
                     Daily Store Hours

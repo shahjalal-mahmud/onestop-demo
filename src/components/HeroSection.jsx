@@ -18,7 +18,7 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl">
+        <div className="max-w-4xl">
 
           {/* Badge */}
           <div className="inline-flex items-center mb-6 px-5 py-2 rounded-full 
@@ -32,7 +32,7 @@ const HeroSection = () => {
             font-extrabold leading-tight mb-6 text-white">
             One Stop Liquor
             <span className="block mt-2 text-amber-400">
-              & Whole Market
+              & Grocery Whole Market
             </span>
           </h1>
 
@@ -69,12 +69,12 @@ const HeroSection = () => {
 
             {/* Secondary CTA */}
             <a
-              href="#contact"
+              href="mailto:hr@onestopliquorandwholemart.info"
               className="inline-flex items-center justify-center px-8 py-4 
-                rounded-xl border border-white/50 
-                text-white font-semibold text-lg 
-                backdrop-blur hover:bg-white hover:text-gray-900 
-                transition-all duration-300"
+    rounded-xl border border-white/50 
+    text-white font-semibold text-lg 
+    backdrop-blur hover:bg-white hover:text-gray-900 
+    transition-all duration-300"
             >
               Contact Us
             </a>

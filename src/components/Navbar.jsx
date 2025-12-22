@@ -4,15 +4,17 @@ import {
   FaBars,
   FaTimes,
   FaPhoneAlt,
-  FaWhatsapp,
+  FaExternalLinkAlt,
   FaShoppingCart,
   FaMapMarkerAlt,
   FaClock,
+  FaStore,
 } from "react-icons/fa";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
@@ -31,37 +33,83 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const handleOrderClick = (e) => {
+    e.preventDefault();
+    setShowPopup(true);
+  };
+
   const navLinks = [
     { to: "/", label: "Home" },
     { to: "/about", label: "About" },
     { to: "/team", label: "Our Team" },
-    { to: "/contact", label: "Contact" },
   ];
 
   return (
     <>
+      {/* Order Unavailable Popup */}
+      {showPopup && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+          <div className="bg-white rounded-xl shadow-2xl max-w-md w-full transform transition-all duration-300 animate-fadeIn">
+            <div className="p-6 text-center">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-amber-100 flex items-center justify-center">
+                <FaShoppingCart className="w-8 h-8 text-amber-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">
+                Ordering Unavailable
+              </h3>
+              <p className="text-gray-600 mb-6">
+                Online ordering is not available at the moment.
+                Please visit our physical store or contact us for inquiries.
+              </p>
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setShowPopup(false)}
+                  className="flex-1 py-3 bg-amber-500 text-white font-semibold rounded-lg hover:bg-amber-600 transition-colors"
+                >
+                  Got It
+                </button>
+                <a
+                  href="https://maps.app.goo.gl/1CzZUigZGggpzdq47"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 py-3 bg-gray-900 text-white font-semibold rounded-lg hover:bg-black transition-colors flex items-center justify-center gap-2"
+                >
+                  <FaMapMarkerAlt />
+                  Find Store
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* TOP INFO BAR - Only show on desktop */}
       <div className="hidden lg:block bg-gradient-to-r from-gray-900 to-black text-gray-200 text-sm fixed top-0 w-full z-50 border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-2">
             <div className="flex items-center gap-4">
-              <span className="flex items-center gap-1">
-                <FaMapMarkerAlt className="text-amber-400" />
+              <a
+                href="https://maps.app.goo.gl/1CzZUigZGggpzdq47"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 hover:text-amber-400 transition-colors group"
+              >
+                <FaMapMarkerAlt className="text-amber-400 group-hover:scale-110 transition-transform" />
                 Los Angeles, CA
-              </span>
+              </a>
               <span className="flex items-center gap-1">
                 <FaClock className="text-amber-400" />
-                Open Daily 8AM – 10PM
+                Open Daily 7AM – 11PM
               </span>
             </div>
             <a
-              href="https://wa.me/3232927591"
+              href="https://maps.app.goo.gl/1CzZUigZGggpzdq47"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-amber-400 hover:text-amber-300 transition-colors"
+              className="flex items-center gap-2 text-amber-400 hover:text-amber-300 transition-colors group"
             >
-              <FaWhatsapp />
-              Order on WhatsApp
+              <FaStore />
+              Visit Our Store
             </a>
           </div>
         </div>
@@ -88,7 +136,7 @@ const Navbar = () => {
               <img
                 src="/logo.png"
                 alt="One Stop Liquor Logo"
-                className={`w-10 h-10 object-contain transition-all duration-300 ${
+                className={`w-14 h-14 object-contain transition-all duration-300 ${
                   scrolled
                     ? ""
                     : "lg:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]"
@@ -107,7 +155,7 @@ const Navbar = () => {
                     scrolled ? "text-amber-600" : "lg:text-amber-400 text-amber-400"
                   }`}
                 >
-                  LIQUOR MARKET WHOLE MART
+                  LIQUOR & GROCERY WHOLE MART
                 </p>
               </div>
             </NavLink>
@@ -139,9 +187,9 @@ const Navbar = () => {
 
             {/* DESKTOP ACTIONS - Right side */}
             <div className="hidden lg:flex items-center gap-6 flex-shrink-0">
-              <a
-                href="tel:3232927591"
-                className={`flex items-center gap-2 font-medium transition-colors duration-300 ${
+              <button
+                onClick={handleOrderClick}
+                className={`flex items-center gap-2 font-medium transition-colors duration-300 cursor-pointer ${
                   scrolled
                     ? "text-gray-700 hover:text-amber-600"
                     : "text-white hover:text-amber-400"
@@ -149,16 +197,19 @@ const Navbar = () => {
               >
                 <FaPhoneAlt className="flex-shrink-0" />
                 <span className="whitespace-nowrap">Order Now</span>
-              </a>
+              </button>
 
-              <button className="relative group">
+              <button 
+                className="relative group"
+                onClick={handleOrderClick}
+              >
                 <FaShoppingCart
-                  className={`w-6 h-6 transition-colors duration-300 ${
+                  className={`w-6 h-6 transition-colors duration-300 cursor-pointer ${
                     scrolled ? "text-gray-700 group-hover:text-amber-600" : "text-white group-hover:text-amber-400"
                   }`}
                 />
                 <span className="absolute -top-2 -right-2 bg-amber-500 text-gray-900 text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
-                  3
+                  0
                 </span>
               </button>
             </div>
@@ -240,37 +291,49 @@ const Navbar = () => {
                 {/* Mobile Contact Info */}
                 <div className="p-6 border-t border-gray-800 space-y-4">
                   <div className="space-y-3">
-                    <a
-                      href="tel:3232927591"
+                    <button
+                      onClick={(e) => {
+                        setOpen(false);
+                        handleOrderClick(e);
+                      }}
                       className="flex items-center justify-center gap-3 w-full 
                         bg-amber-500 text-gray-900 py-3 rounded-lg 
-                        font-bold hover:bg-amber-400 transition-colors"
+                        font-bold hover:bg-amber-400 transition-colors cursor-pointer"
                     >
                       <FaPhoneAlt />
                       Call to Order
-                    </a>
+                    </button>
                     
                     <a
-                      href="https://wa.me/3232927591"
+                      href="https://maps.app.goo.gl/1CzZUigZGggpzdq47"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-3 w-full 
-                        bg-green-600 text-white py-3 rounded-lg 
-                        font-bold hover:bg-green-500 transition-colors"
+                        bg-gray-800 text-white py-3 rounded-lg 
+                        font-bold hover:bg-gray-700 transition-colors"
+                      onClick={() => setOpen(false)}
                     >
-                      <FaWhatsapp />
-                      WhatsApp Order
+                      <FaStore />
+                      Visit Our Store
+                      <FaExternalLinkAlt className="text-xs ml-1" />
                     </a>
                   </div>
                   
                   <div className="text-center text-gray-400 text-sm pt-4 border-t border-gray-800">
-                    <p className="flex items-center justify-center gap-2 mb-2">
-                      <FaMapMarkerAlt />
+                    <a
+                      href="https://maps.app.goo.gl/1CzZUigZGggpzdq47"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 mb-2 hover:text-white transition-colors group"
+                      onClick={() => setOpen(false)}
+                    >
+                      <FaMapMarkerAlt className="text-amber-400" />
                       Los Angeles, CA
-                    </p>
+                      <FaExternalLinkAlt className="text-xs opacity-70 ml-1 group-hover:translate-x-0.5 transition-transform" />
+                    </a>
                     <p className="flex items-center justify-center gap-2">
-                      <FaClock />
-                      Open Daily 8AM – 10PM
+                      <FaClock className="text-amber-400" />
+                      Open Daily 7AM – 11PM
                     </p>
                   </div>
                 </div>
@@ -280,7 +343,7 @@ const Navbar = () => {
         )}
       </nav>
 
-      {/* Add slide-in animation for mobile menu */}
+      {/* Add animations */}
       <style jsx="true">{`
         @keyframes slideIn {
           from {
@@ -291,8 +354,23 @@ const Navbar = () => {
           }
         }
         
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        
         .animate-slideIn {
           animation: slideIn 0.3s ease-out;
+        }
+        
+        .animate-fadeIn {
+          animation: fadeIn 0.2s ease-out;
         }
       `}</style>
     </>

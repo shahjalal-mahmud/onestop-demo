@@ -71,7 +71,7 @@ const About = () => {
 
             {/* Subtitle */}
             <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed">
-              Serving the Los Angeles community since 2017 with premium spirits, 
+              Serving the Los Angeles community since 2017 with premium spirits,
               everyday essentials, and trusted local service.
             </p>
           </div>
@@ -81,7 +81,7 @@ const About = () => {
       {/* Main Content */}
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
         {/* Our Story Section */}
-        <motion.div 
+        <motion.div
           {...fadeInUp}
           className="max-w-6xl mx-auto mb-20 lg:mb-28"
         >
@@ -92,12 +92,12 @@ const About = () => {
                 Building Trust Since 2017
               </h2>
             </div>
-            
+
             <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-10">
-              Established in 2017, <span className="font-bold text-amber-400">ONE STOP LIQUOR & WHOLE MARKET</span> has 
-              built an unwavering reputation for reliability and operational excellence under the esteemed 
-              <span className="font-bold text-amber-300"> SVK Group LLC</span>. We've grown to become a trusted 
-              name in the industry through our unwavering dedication to quality, customer satisfaction, 
+              Established in 2017, <span className="font-bold text-amber-400">ONE STOP LIQUOR & WHOLE MARKET</span> has
+              built an unwavering reputation for reliability and operational excellence under the esteemed
+              <span className="font-bold text-amber-300"> SVK Group LLC</span>. We've grown to become a trusted
+              name in the industry through our unwavering dedication to quality, customer satisfaction,
               and community service.
             </p>
 
@@ -110,7 +110,7 @@ const About = () => {
                   <h3 className="text-2xl font-bold text-white">Our Mission</h3>
                 </div>
                 <p className="text-gray-300 leading-relaxed">
-                  To provide exceptional quality products with consistent reliability, setting new standards 
+                  To provide exceptional quality products with consistent reliability, setting new standards
                   in the liquor and wholesale market while maintaining competitive pricing for our valued customers.
                 </p>
               </div>
@@ -122,7 +122,7 @@ const About = () => {
                   <h3 className="text-2xl font-bold text-white">Our Vision</h3>
                 </div>
                 <p className="text-gray-300 leading-relaxed">
-                  To be the leading choice for customers seeking premium quality, unparalleled service, 
+                  To be the leading choice for customers seeking premium quality, unparalleled service,
                   and a diverse selection of products in our industry throughout Southern California.
                 </p>
               </div>
@@ -131,7 +131,7 @@ const About = () => {
         </motion.div>
 
         {/* Company Info Cards */}
-        <motion.div 
+        <motion.div
           {...fadeInUp}
           className="mb-20 lg:mb-28"
         >
@@ -178,7 +178,7 @@ const About = () => {
         </motion.div>
 
         {/* Commitment Section */}
-        <motion.div 
+        <motion.div
           {...fadeInUp}
           className="max-w-4xl mx-auto"
         >
@@ -190,17 +190,21 @@ const About = () => {
               Our Commitment to You
             </h3>
             <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-10">
-              We continue to uphold our founding principles of integrity, quality, and customer-centric 
-              service. Every day, we strive to exceed expectations and maintain the trust we've built 
+              We continue to uphold our founding principles of integrity, quality, and customer-centric
+              service. Every day, we strive to exceed expectations and maintain the trust we've built
               with our community and partners over the years. Your satisfaction is our success.
             </p>
-            
-            <div className="inline-flex items-center justify-center px-8 py-4 
+            <a
+              href="https://maps.app.goo.gl/1CzZUigZGggpzdq47"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-4 
               rounded-xl border border-amber-500 text-amber-400 
               font-semibold text-lg hover:bg-amber-500 hover:text-gray-900 
-              transition-all duration-300 cursor-pointer">
+              transition-all duration-300 cursor-pointer"
+            >
               Visit Our Store Today
-            </div>
+            </a>
           </div>
         </motion.div>
       </main>

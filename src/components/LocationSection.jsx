@@ -116,7 +116,7 @@ const LocationSection = () => {
                     ["Business Type", "Retail & Wholesale Liquor"],
                     ["Parent Company", "SVK GROUP LLC"],
                     ["Service Region", "All Southern California"],
-                    ["Store Hours", "Daily: 8:00 AM – 10:00 PM"],
+                    ["Store Hours", "Daily: 7:00 AM – 11:00 PM"],
                   ].map(([label, value], i) => (
                     <div key={i} className="flex justify-between items-center py-4 border-b border-gray-800/50 
                       last:border-0 group">
