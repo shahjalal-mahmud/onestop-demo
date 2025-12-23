@@ -275,35 +275,6 @@ const Navbar = () => {
                       <FaExternalLinkAlt className="text-xs ml-1" />
                     </a>
                   </div>
-                  
-                  <div className="text-center text-gray-400 text-sm pt-4 border-t border-gray-800 space-y-3">
-                    <a
-                      href="tel:+13232927591"
-                      className="flex items-center justify-center gap-2 hover:text-white transition-colors group"
-                      onClick={() => setOpen(false)}
-                    >
-                      <FaPhoneAlt className="text-amber-400" />
-                      +1 323-293-6838
-                    </a>
-                    <a
-                      href="https://maps.app.goo.gl/1CzZUigZGggpzdq47"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 mb-2 hover:text-white transition-colors group"
-                      onClick={() => setOpen(false)}
-                    >
-                      <FaMapMarkerAlt className="text-amber-400" />
-                      Los Angeles, CA
-                      <FaExternalLinkAlt className="text-xs opacity-70 ml-1 group-hover:translate-x-0.5 transition-transform" />
-                    </a>
-                    <p className="flex items-center justify-center gap-2">
-                      <FaClock className="text-amber-400" />
-                      Open Daily 7AM – 11PM
-                    </p>
-                    <p className="text-amber-400 font-semibold text-xs pt-2">
-                      LIQUOR • WINE • GROCERIES • PARTY SUPPLIES
-                    </p>
-                  </div>
                 </div>
               </div>
             </div>
