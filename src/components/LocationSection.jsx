@@ -113,7 +113,7 @@ const LocationSection = () => {
                   {[
                     ["Primary Market", "Los Angeles Metropolitan Area"],
                     ["Operating Since", "2017"],
-                    ["Business Type", "Retail & Wholesale Liquor"],
+                    ["Business Type", "Retail & Wholesale Liquor & Grocery"],
                     ["Parent Company", "SVK GROUP LLC"],
                     ["Service Region", "All Southern California"],
                     ["Store Hours", "Daily: 7:00 AM – 11:00 PM"],
@@ -128,28 +128,6 @@ const LocationSection = () => {
                       </span>
                     </div>
                   ))}
-                </div>
-
-                {/* Stats footer */}
-                <div className="mt-10 pt-8 border-t border-gray-800/50">
-                  <div className="grid grid-cols-2 gap-6">
-                    <div className="text-center">
-                      <div className="text-3xl font-extrabold text-amber-400 mb-2">
-                        7+
-                      </div>
-                      <div className="text-sm text-gray-400 uppercase tracking-wider">
-                        Years Serving LA
-                      </div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-extrabold text-amber-400 mb-2">
-                        24/7
-                      </div>
-                      <div className="text-sm text-gray-400 uppercase tracking-wider">
-                        Wholesale Support
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
 

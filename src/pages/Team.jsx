@@ -25,10 +25,10 @@ const Team = () => {
       experience: "8+ years in Business Systems Analysis",
       education: "MS, Management Information Systems",
       image: "/team/operations.jpg",
-      joinDate: "Founding Member",
+      joinDate: "Member From 2025",
       initials: "AR",
       specialties: ["Business Analytics", "System Architecture", "Strategic Planning"],
-      email: "abdullah@onestopliquor.com"
+      email: "hr@onestopliquorandwholemart.info"
     },
     {
       name: "POOJAN VACHHANI",
@@ -41,7 +41,7 @@ const Team = () => {
       joinDate: "2018",
       initials: "PV",
       specialties: ["Operations Management", "Business Development", "Team Leadership"],
-      email: "poojan@onestopliquor.com"
+      email: ""
     },
     {
       name: "DARSHAN KUMAR",
@@ -54,7 +54,7 @@ const Team = () => {
       joinDate: "2019",
       initials: "DK",
       specialties: ["Customer Service", "Client Relations", "Service Optimization"],
-      email: "darshan@onestopliquor.com"
+      email: ""
     }
   ];
 

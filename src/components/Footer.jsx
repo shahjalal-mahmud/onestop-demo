@@ -135,7 +135,7 @@ const Footer = () => {
 
                 <li>
                   <a
-                    href="tel:3232927591"
+                    href="tel:+13232927591"
                     className="flex items-start gap-4 group"
                   >
                     <div className="p-3 rounded-xl bg-gradient-to-r from-amber-500/10 to-amber-600/10 
@@ -146,7 +146,7 @@ const Footer = () => {
                       <h5 className="font-semibold text-white mb-1">Phone Number</h5>
                       <p className="text-gray-400 text-lg">+1 323-293-6838</p>
                       <span className="text-amber-400/80 text-sm mt-1 inline-block">
-                        Call to Order • 24/7 Wholesale Support
+                        Wholesale Support
                       </span>
                     </div>
                   </a>
@@ -154,7 +154,7 @@ const Footer = () => {
 
                 <li>
                   <a
-                    href="mailto:hr@onestopliquorandwholemart.info"
+                    href="mailto:contact@onestopliquorandwholemart.info"
                     className="flex items-start gap-4 group"
                   >
                     <div className="p-3 rounded-xl bg-gradient-to-r from-amber-500/10 to-amber-600/10 
@@ -163,7 +163,7 @@ const Footer = () => {
                     </div>
                     <div>
                       <h5 className="font-semibold text-white mb-1">Email Address</h5>
-                      <p className="text-gray-400">hr@onestopliquorandwholemart.info</p>
+                      <p className="text-gray-400">contact@onestopliquorandwholemart.info</p>
                       <span className="text-amber-400/80 text-sm mt-1 inline-block">
                         Business Inquiries • Partnerships
                       </span>

@@ -4,9 +4,9 @@ import { ChevronRight, Mail, Phone, MapPin, Shield, Award, Truck } from "lucide-
 const CallToAction = () => {
   const trustItems = [
     {
-      text: "ONE STOP LIQUOR & WHOLE MARKET",
+      text: "ONE STOP LIQUOR & GROCERY WHOLE MARKET",
       icon: <Shield className="w-6 h-6" />,
-      description: "Premium liquor & wholesale destination"
+      description: "Premium liquor & grocery wholesale destination"
     },
     {
       text: "SVK GROUP LLC",
@@ -55,11 +55,11 @@ const CallToAction = () => {
             </p>
 
             {/* Stats */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto mb-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto mb-16">
               {[
                 { value: "7+ Years", label: "Of Excellence", icon: <Award className="w-5 h-5" /> },
                 { value: "500+", label: "Premium Products", icon: <Shield className="w-5 h-5" /> },
-                { value: "24/7", label: "Customer Support", icon: <Truck className="w-5 h-5" /> }
+                // { value: "24/7", label: "Customer Support", icon: <Truck className="w-5 h-5" /> }
               ].map((stat, index) => (
                 <div 
                   key={index}
@@ -99,7 +99,7 @@ const CallToAction = () => {
 
             {/* Secondary button */}
             <a
-              href="mailto:hr@onestopliquorandwholemart.info"
+              href="mailto:contact@onestopliquorandwholemart.info"
               className="group w-full sm:w-auto px-10 py-5 lg:px-12 lg:py-6 
                 bg-transparent text-white font-semibold text-lg rounded-2xl 
                 border-2 border-amber-500/50 hover:border-amber-400 hover:bg-amber-500/10 
@@ -162,7 +162,7 @@ const CallToAction = () => {
                     +1 323-292-7591
                   </span>
                   <span className="text-sm text-gray-400">
-                    Call to Order
+                    Call for any Information
                   </span>
                 </div>
               </a>

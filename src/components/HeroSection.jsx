@@ -69,7 +69,7 @@ const HeroSection = () => {
 
             {/* Secondary CTA */}
             <a
-              href="mailto:hr@onestopliquorandwholemart.info"
+              href="mailto:contact@onestopliquorandwholemart.info"
               className="inline-flex items-center justify-center px-8 py-4 
     rounded-xl border border-white/50 
     text-white font-semibold text-lg 

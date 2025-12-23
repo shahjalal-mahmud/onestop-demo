@@ -6,7 +6,7 @@ const About = () => {
     {
       icon: <Building2 className="w-8 h-8" />,
       title: "Company Name",
-      value: "ONE STOP LIQUOR & WHOLE MARKET",
+      value: "ONE STOP LIQUOR & GROCERY WHOLE MARKET",
       description: "Operating under SVK Group LLC"
     },
     {
@@ -94,7 +94,7 @@ const About = () => {
             </div>
 
             <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-10">
-              Established in 2017, <span className="font-bold text-amber-400">ONE STOP LIQUOR & WHOLE MARKET</span> has
+              Established in 2017, <span className="font-bold text-amber-400">ONE STOP LIQUOR & GROCERY WHOLE MARKET</span> has
               built an unwavering reputation for reliability and operational excellence under the esteemed
               <span className="font-bold text-amber-300"> SVK Group LLC</span>. We've grown to become a trusted
               name in the industry through our unwavering dedication to quality, customer satisfaction,
